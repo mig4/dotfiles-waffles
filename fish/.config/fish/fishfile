@@ -5,4 +5,5 @@ fisherman/getopts
 fisherman/git_util
 oh-my-fish/plugin-grc
 oh-my-fish/plugin-node-binpath
+oh-my-fish/plugin-sudope
 fisherman/z
