@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if ! command -v fish >/dev/null 2>&1; then
+  printf '%s\n' \
+    'bootstrap requires fish, install it first and run `yadm bootstrap`' >&2
+  exit 1
+fi
+
+exec fish "${HOME}/.yadm/bootstrap.fish"

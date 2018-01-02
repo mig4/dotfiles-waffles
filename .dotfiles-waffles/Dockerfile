@@ -41,11 +41,5 @@ RUN \
 
 USER nemo
 
-RUN yadm clone /src
-
-RUN mkdir -p ~/.local/venvs && pip install --user vex
-
-RUN curl \
-  -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-
-RUN fish -c 'fisher < /home/nemo/.config/fish/fishfile'
+RUN yadm clone /src \
+  && yadm bootstrap
