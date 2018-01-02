@@ -1,2 +1,3 @@
 # dotfiles-waffles
-dotfiles experiment
+
+dotfiles experiment using [YADM](https://thelocehiliosan.github.io/yadm/).
