@@ -1,16 +1,14 @@
 
-FROM ohmyfish/fish
+FROM ohmyfish/fish:3.0.0
 MAINTAINER jitakirin <jitakirin@gmail.com>
 
 USER root
 
 # bash - for YADM
-# pip - needed to install vex
-# python-dev and gcc - for pip (to compile packages containing extensions)
 # python3 - for grc
 # less and tree - just for convenience
 RUN \
-  apk add -U bash gcc less python-dev py2-pip python3 tree \
+  apk add -U bash less python3 tree \
   && rm -rf /var/cache/apk/*
 
 # generic colouriser (debian and opensuse have a package for it, alpine
@@ -41,5 +39,4 @@ RUN \
 
 USER nemo
 
-RUN yadm clone /src \
-  && yadm bootstrap
+RUN yadm clone --bootstrap /src
