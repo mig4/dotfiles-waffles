@@ -1,7 +1,18 @@
 [include]
 	path = id.conf
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
+	st = status -sb
 [cola]
 	spellcheck = false
+[color "branch"]
+	current = green reverse
+	local = green
+	remote = yellow
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
 [commit]
 	gpgsign = true
 [filter "lfs"]
