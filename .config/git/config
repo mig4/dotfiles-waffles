@@ -1,7 +1,16 @@
 [include]
 	path = id.conf
 [alias]
-	lg = log --graph --pretty=format:'%Cred%h%Creset %s%C(yellow)%d%Creset %Cgreen(%cr)%Creset [%an]' --abbrev-commit --date=relative
+	# lg breakdown:
+	# - `%C(auto)%h` - auto-color abbreviated commit ID
+	# - `%C(brightblue)[` - bright blue open square bracket
+	# - `%C(blue)%G?:` - blue signature status (G=good, B=bad, U=good/unknown, X=expired, Y=expired key, R=revoked key, E=error, N=no signature)
+	# - `$C(brightblue)%<|(20)%an` - bright blue author name padded with spaces on the right until at least 20th column
+	# - `]%(auto)` - close bracket and return to auto-color
+	# - `%s` - commit subject
+	# - `%d` - ref names, like the --decorate option
+	# - `%(black)%(bold)% cd` - bold black commit date preceeded by auto-space
+	lg = log --graph --format='%C(auto)%h %C(brightblue)[%C(blue)%G?:%C(brightblue)%<|(20)%an]%C(auto) %s%d%C(black)%C(bold)% cd' --date=relative
 	st = status -sb
 [cola]
 	spellcheck = false
